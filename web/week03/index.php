@@ -3,6 +3,7 @@
     // array of products and prices
     $products = array("Square 10k White Gold", "Round 14k White Gold", "Round 10k White Gold");
     $prices = array("1199.00", "1499.00", "1299.00");
+    
     //save to session variables
     if ( isset($_GET["add"]) ) {
         $i = $_GET["add"];
@@ -55,7 +56,7 @@
 </div>
 
 
-<?php include ('footer.php'); ?>
+<?php include('../footer.php'); ?>
 
     
 </body>

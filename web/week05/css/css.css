@@ -1,0 +1,102 @@
+/* body {
+	background-image: url("https://www.planwallpaper.com/static/images/nature_backgrounds_elegant_background_pictures_7072.jpg");
+	text-align: center;
+} */
+
+.navbar {
+	display: flex;
+	background-color: aliceblue;
+	padding: 14px 20px;
+	list-style: none;
+  }
+  
+  .navbar a {
+	color: white;
+	color: #7d4627;
+	padding: 14px 20px;
+	text-decoration: none;
+	text-align: center;
+  }
+  
+  
+  .navbar a:hover {
+	background-color: #ddd;
+	color: black;
+	padding: 14px 20px;
+  }
+  
+  .navbar .active {
+	background-color: rgb(228, 153, 212);
+	color: white
+  }
+  
+  .row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+  }
+.images{
+	list-style-type: none;
+}
+
+h1, h2, h3, h4, p, li a {
+	color: black;
+	font-family: "Verdana";
+}
+
+h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 26px;
+}
+
+p {
+	font-size: 20px;
+}
+
+#body {
+	width: 80%;
+	margin-top: 0;
+	margin-bottom: 0;
+	background: rgba(238, 238, 238, 0.92);
+	padding: 14px;
+	height: auto;
+	display: inline-block;
+	text-align: left;
+}
+
+div.separate {
+	background-color: rgb(200, 0, 0);
+}
+
+ul.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	background: rgba(215, 215, 215, 0.92);
+}
+
+li.nav {
+    float: left;
+}
+
+li a.nav {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: rgba(192, 192, 192, 0.92);
+}
+
+img {
+	width: 350px;
+	margin-top: 30px;
+	margin-left: 30px;
+	clear: right;
+}
