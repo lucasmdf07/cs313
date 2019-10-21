@@ -16,7 +16,6 @@
 	<div class="body">
     <br>
 
-	<!-- <h2>List of Hotels to Rate</h2> -->
 	<h4> Click on the Hotel Name for more Details</h4>
 	
 	<?php
