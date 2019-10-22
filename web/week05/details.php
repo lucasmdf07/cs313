@@ -5,10 +5,10 @@ session_start();
 include 'database/db_access.php';
 
 /*  */
-$siteId = $_GET["siteId"];
+$hotel_Id = $_GET["hotel_Id"];
 
 /*  */
-if (!isset($siteId)) {
+if (!isset($hotel_Id)) {
 	die("No site ID.");
 }
 
@@ -32,31 +32,33 @@ if (!isset($siteId)) {
     <br>
 	<?php 
 	
-	$stmt = $db->prepare("SELECT url FROM picture WHERE hotel_id=:siteId");
-	$stmt->bindValue(':siteId', $siteId, PDO::PARAM_STR);
-	$stmt->execute();
-	$stmt->bindColumn(1, $url);
-	
-	while ($stmt->fetch()) {
-		echo "<img src='" . $url . "'>";
-	}
-
-	$stmt = $db->prepare("SELECT name, address, description FROM hotel WHERE id=:siteId");
-	$stmt->bindValue(':siteId', $siteId, PDO::PARAM_STR);
+	$stmt = $db->prepare("SELECT name, address, description FROM hotel WHERE id=:hotel_Id");
+	$stmt->bindValue(':hotel_Id', $hotel_Id, PDO::PARAM_STR);
 	$stmt->execute();
 	$stmt->bindColumn(1, $name);
 	$stmt->bindColumn(2, $address);
 	$stmt->bindColumn(3, $description);
 	
+	
 	while ($stmt->fetch()) {
-		echo "<h2>" . $name . "</h2>";
-		echo "<h3>Description</h3>";
-		echo "<p>" . $description . "</p>";
+		echo "<p>Name: " . $name . "</p>";
+		echo "<p>About: " . $description . "</p>";
 		echo "<p>Address: " . $address . "</p>";
 	}
+
+	$stmt = $db->prepare("SELECT url FROM picture WHERE hotel_id=:hotel_Id");
+	$stmt->bindValue(':hotel_Id', $hotel_Id, PDO::PARAM_STR);
+	$stmt->execute();
+	$stmt->bindColumn(1, $url);
+	
+	while ($stmt->fetch()) {
+		echo "<img class='imageDetails' src='" . $url . "'>";
+	}
+
 	?>
-
-
+	</br>
+	</br>
+			<?php include('footer.php'); ?>
 </div>
 
 </body>

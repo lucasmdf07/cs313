@@ -16,42 +16,43 @@
 	<div class="body">
     <br>
 
+	<!-- <h2>List of Hotels to Rate</h2> -->
 	<h4> Click on the Hotel Name for more Details</h4>
 	
 	<?php
 	include 'database/db_access.php';
-		
-	foreach ($db->query("SELECT * FROM state") as $state_row) {
-		echo $state_row["name"] . ", ";
-		$stateId = $state_row["id"];
+
+	// Leonardo, Henrique and Lucas worked together on these loops
+	foreach ($db->query("SELECT * FROM state") as $stateLine) {
+		echo $stateLine["name"] . ", ";
+		$state_Id = $stateLine["id"];
 			
-		foreach ($db->query("SELECT * FROM city WHERE state_id=$stateId") as $county_row) {
-			echo $county_row["name"];
+	foreach ($db->query("SELECT * FROM city WHERE state_id=$state_Id") as $countyLine) {
+			echo $countyLine["name"];
 			echo "<ul>";
-			$countyId = $county_row["id"];
+			$city_Id = $countyLine["id"];
 				
-			foreach ($db->query("SELECT * FROM hotel WHERE city_id=$countyId") as $site_row) {
-				$siteId = $site_row["id"];
-				echo "<li><a href='details.php?siteId=$siteId'>" . $site_row["name"] . "</a></li>";
-			}
-				
+	foreach ($db->query("SELECT * FROM hotel WHERE city_id=$city_Id") as $siteLine) {
+			$hotel_Id = $siteLine["id"];
 			
 
-
-			$stmt = $db->prepare("SELECT url FROM picture WHERE hotel_id=:siteId");
-			$stmt->bindValue(':siteId', $siteId, PDO::PARAM_STR);
-			$stmt->execute();
-			$stmt->bindColumn(1, $url);
-			
-			while ($stmt->fetch()) {
-				echo "<li class='images'><img src='" . $url . "'></li>";
-			}
+		$stmt = $db->prepare("SELECT url FROM picture WHERE hotel_id=:hotel_Id");
+		$stmt->bindValue(':hotel_Id', $hotel_Id, PDO::PARAM_STR);
+		$stmt->execute();
+		$stmt->bindColumn(1, $url);
 	
-			echo "</ul>";
-			
+	while ($stmt->fetch()) {
+		echo "<li class='images'><a href='details.php?hotel_Id=$hotel_Id'><img src='" . $url . "'></a></li>";
+	}
+
+			echo "<li class='images'><a href='details.php?hotel_Id=$hotel_Id'>" . $siteLine["name"] . "</a></li>";
+	}
+			echo "</ul>";		
 			}
 	}
 	?>
+
+		<?php include('footer.php'); ?>
 </div>
 
 </body>

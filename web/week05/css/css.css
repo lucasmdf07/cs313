@@ -1,7 +1,8 @@
-/* body {
-	background-image: url("https://www.planwallpaper.com/static/images/nature_backgrounds_elegant_background_pictures_7072.jpg");
-	text-align: center;
-} */
+body {
+	background-image: url("../images/hotel_background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 
 .navbar {
 	display: flex;
@@ -39,6 +40,14 @@
 	list-style-type: none;
 }
 
+.imageDetails {
+	width: 70%;
+	align-self: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 h1, h2, h3, h4, p, li a {
 	color: black;
 	font-family: "Verdana";
@@ -56,15 +65,11 @@ p {
 	font-size: 20px;
 }
 
-#body {
-	width: 80%;
-	margin-top: 0;
-	margin-bottom: 0;
-	background: rgba(238, 238, 238, 0.92);
-	padding: 14px;
-	height: auto;
-	display: inline-block;
-	text-align: left;
+body {
+	margin-left: 10%;
+	margin-right: 10%;
+	font-family: georgia;
+	color: rgb(92, 58, 30);
 }
 
 div.separate {
@@ -99,4 +104,12 @@ img {
 	margin-top: 30px;
 	margin-left: 30px;
 	clear: right;
+}
+
+.footer {
+padding: 20px;
+text-align: center;
+background: aliceblue;
+color: #7d4627;
+font-size: 70%;
 }

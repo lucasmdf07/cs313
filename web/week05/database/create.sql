@@ -31,7 +31,7 @@ CREATE TABLE picture (
 -- 	reviewer_name 		VARCHAR(80) NOT NULL,
 -- 	rating 				INTEGER NOT NULL,
 -- 	description 		VARCHAR(200),
--- 	site_id 			INTEGER,
--- 	FOREIGN KEY (site_id) REFERENCES site(id)
+-- 	hotel_Id 			INTEGER,
+-- 	FOREIGN KEY (hotel_Id) REFERENCES site(id)
 -- );
 
